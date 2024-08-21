@@ -123,6 +123,8 @@ def FuchsiaAlpha : Package<"fuchsia">, ParentPackage<Alpha>;
 def WebKit : Package<"webkit">;
 def WebKitAlpha : Package<"webkit">, ParentPackage<Alpha>;
 
+def Ruby : Package<"ruby">;
+
 //===----------------------------------------------------------------------===//
 // Core Checkers.
 //===----------------------------------------------------------------------===//
@@ -1771,3 +1773,14 @@ def UncountedLocalVarsChecker : Checker<"UncountedLocalVarsChecker">,
   Documentation<HasDocumentation>;
 
 } // end alpha.webkit
+
+//===----------------------------------------------------------------------===//
+// Ruby checkers.
+//===----------------------------------------------------------------------===//
+let ParentPackage = Ruby in {
+
+def RubyMissGuardChecker : Checker<"RubyMissGuardChecker">,
+  HelpText<"Check missing of RB_GC_GUARD in CRuby.">,
+  Documentation<HasDocumentation>;
+
+}
